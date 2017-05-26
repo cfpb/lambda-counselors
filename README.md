@@ -1,10 +1,11 @@
-# lambda-counselors-pdf
+# lambda-counselors
 
 An AWS Lambda function for creating PDFs from CFPB's [housing counselor search tool](https://www.consumerfinance.gov/find-a-housing-counselor/).
 
 ## Installation
 
 1. `npm i -g serverless`
+1. `npm install`
 1. Create/obtain AWS credentials that have Lambda access.
 1. Store the credentials locally: `aws configure --profile housing-counselors-pdf`
 1. Create an S3 bucket called `housing-counselor-pdfs` and grant your account write access to it.
@@ -12,7 +13,7 @@ An AWS Lambda function for creating PDFs from CFPB's [housing counselor search t
 ## Testing
 
 1. `serverless deploy` will deploy the project to staging.
-1. `serverless invoke --log -f pdf -d '{"queryStringParameters":{"zipcode":12345}}'`
+1. `serverless invoke --log --function pdf --data '{"queryStringParameters":{"zipcode":12345}}'` invokes the function with `?zipcode=1234`.
 
 ## Deployment
 
